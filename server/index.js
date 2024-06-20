@@ -48,7 +48,7 @@ connection.query(createTable, (err, results)=>{
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 
 const app = express();
