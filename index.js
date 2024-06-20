@@ -52,7 +52,7 @@ const PORT = 3000;
 
 
 const app = express();
-
+app.use(cors())
 const server = createServer(app)
 const io = new Server(server,{
   cors:{
@@ -84,8 +84,8 @@ io.on('connection', (socket)=>{
             return;
         }
         results.forEach(row => {
-          console.log( row.content, socket.handshake.auth.serverOffset)
-          socket.emit('chat message',  row.content, row.usuario, socket.handshake.auth.serverOffset);
+          console.log( row.message, socket.handshake.auth.serverOffset)
+          socket.emit('chat message',  row.message, row.usuario, socket.handshake.auth.serverOffset);
         });
     
     });
